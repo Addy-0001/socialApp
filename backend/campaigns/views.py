@@ -1,7 +1,12 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .models import Campaign
-from .serializers import CampaignSerializer
+from .models import Campaign, CampaignCategory
+from .serializers import CampaignSerializer, CampaignCategorySerializer
+
+
+class CampaignCategoryViewSet(viewsets.ModelViewSet):
+    queryset = CampaignCategory.objects.all()
+    serializer_class = CampaignCategorySerializer
 
 
 class CampaignViewSet(viewsets.ModelViewSet):
@@ -21,7 +26,8 @@ class CampaignViewSet(viewsets.ModelViewSet):
         # Set is_business based on user role
         serializer.save(
             created_by=self.request.user,
-            is_business=self.request.user.role == 'BUSINESS'
+            is_business=self.request.user.role == 'BUSINESS',
+            category_id=self.request.data.get('category_id')
         )
 
     def get_queryset(self):

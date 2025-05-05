@@ -8,7 +8,17 @@ import router from './router'
 
 const app = createApp(App)
 
-app.use(createPinia())
+const pinia = createPinia()
+
+app.use(pinia)
+
+
+import { useAuthStore } from './stores/auth';
+const authStore = useAuthStore(pinia);
+
+// Initialize auth state immediately
+authStore.initAuth();
+
 app.use(router)
 
 app.mount('#app')

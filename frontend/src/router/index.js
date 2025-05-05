@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CampaignsView from '@/views/CampaignsView.vue'
 import CampaignDetailView from '@/views/Campaign/CampaignDetailView.vue'
 import CampaignListView from '@/views/Campaign/CampaignListView.vue'
+import SignupView from '@/views/Auth/SignupView.vue'
+import LoginView from '@/views/Auth/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,31 @@ const router = createRouter({
       path: '/campaigns/:id',
       name: 'campaign',
       component: CampaignDetailView
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignupView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/views/Auth/Profile.vue')
+    },
+    {
+      path: '/my-campaigns',
+      name: 'my-campaigns',
+      component: () => import('@/views/Auth/MyCampaignsView.vue')
+    },
+    {
+      path: '/campaigns/create',
+      name: 'create-campaign',
+      component: () => import("@/views/Auth/CreateCampaign.vue")
     }
   ],
 })

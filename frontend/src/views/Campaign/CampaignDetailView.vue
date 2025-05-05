@@ -14,9 +14,7 @@
       <button @click="fetchCampaignDetails" class="btn btn-primary">
         Try Again
       </button>
-      <router-link to="/campaigns" class="btn btn-outline mt-2"
-        >Back to Campaigns</router-link
-      >
+      <router-link to="/campaigns" class="btn btn-outline mt-2">Back to Campaigns</router-link>
     </div>
 
     <!-- Campaign Details -->
@@ -35,13 +33,9 @@
               <div class="campaign-badges">
                 <span class="campaign-category">{{
                   campaign.category.name
-                }}</span>
-                <span v-if="campaign.is_featured" class="featured-badge"
-                  >Featured</span
-                >
-                <span v-if="campaign.is_business" class="business-badge"
-                  >Business</span
-                >
+                  }}</span>
+                <span v-if="campaign.is_featured" class="featured-badge">Featured</span>
+                <span v-if="campaign.is_business" class="business-badge">Business</span>
               </div>
               <h1 class="campaign-title">{{ campaign.title }}</h1>
               <div class="campaign-meta">
@@ -66,35 +60,13 @@
             <!-- Left Column: Campaign Image and Description -->
             <div class="campaign-left-column">
               <div class="campaign-image-container">
-                <img
-                  :src="campaign.cover_image"
-                  :alt="campaign.title"
-                  @error="handleImageError"
-                  class="campaign-image"
-                />
+                <img :src="campaign.cover_image" :alt="campaign.title" @error="handleImageError"
+                  class="campaign-image" />
               </div>
 
               <div class="campaign-tabs">
-                <button
-                  class="tab-button"
-                  :class="{ active: activeTab === 'about' }"
-                  @click="activeTab = 'about'"
-                >
+                <button class="tab-button" :class="{ active: activeTab === 'about' }" @click="activeTab = 'about'">
                   About
-                </button>
-                <button
-                  class="tab-button"
-                  :class="{ active: activeTab === 'updates' }"
-                  @click="activeTab = 'updates'"
-                >
-                  Updates
-                </button>
-                <button
-                  class="tab-button"
-                  :class="{ active: activeTab === 'comments' }"
-                  @click="activeTab = 'comments'"
-                >
-                  Comments
                 </button>
               </div>
 
@@ -122,117 +94,14 @@
                       size, makes a difference in our ability to achieve our
                       goals.
                     </p>
-
-                    <h3>Timeline</h3>
-                    <ul class="timeline">
-                      <li>
-                        <div class="timeline-date">Phase 1: Planning</div>
-                        <div class="timeline-content">
-                          <p>
-                            Initial assessment, stakeholder engagement, and
-                            strategy development.
-                          </p>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="timeline-date">Phase 2: Implementation</div>
-                        <div class="timeline-content">
-                          <p>
-                            Executing key activities, mobilizing resources, and
-                            building partnerships.
-                          </p>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="timeline-date">Phase 3: Evaluation</div>
-                        <div class="timeline-content">
-                          <p>
-                            Measuring impact, documenting outcomes, and sharing
-                            results.
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
                   </div>
                 </div>
 
                 <!-- Updates Tab -->
-                <div v-else-if="activeTab === 'updates'" class="tab-panel">
-                  <div class="campaign-updates">
-                    <h2>Campaign Updates</h2>
 
-                    <div v-if="updates.length > 0" class="updates-list">
-                      <div
-                        v-for="(update, index) in updates"
-                        :key="index"
-                        class="update-item"
-                      >
-                        <div class="update-header">
-                          <h3>{{ update.title }}</h3>
-                          <span class="update-date">{{
-                            formatDate(update.date)
-                          }}</span>
-                        </div>
-                        <p>{{ update.content }}</p>
-                      </div>
-                    </div>
-
-                    <div v-else class="empty-updates">
-                      <p>No updates have been posted yet. Check back soon!</p>
-                    </div>
-                  </div>
-                </div>
 
                 <!-- Comments Tab -->
-                <div v-else-if="activeTab === 'comments'" class="tab-panel">
-                  <div class="campaign-comments">
-                    <h2>Comments</h2>
 
-                    <div class="comment-form">
-                      <h3>Leave a Comment</h3>
-                      <textarea
-                        v-model="newComment"
-                        placeholder="Share your thoughts about this campaign..."
-                        class="form-control"
-                        rows="4"
-                      ></textarea>
-                      <button @click="addComment" class="btn btn-primary mt-2">
-                        Post Comment
-                      </button>
-                    </div>
-
-                    <div v-if="comments.length > 0" class="comments-list">
-                      <div
-                        v-for="(comment, index) in comments"
-                        :key="index"
-                        class="comment-item"
-                      >
-                        <div class="comment-avatar">
-                          <div class="avatar-placeholder">
-                            {{ comment.author.charAt(0) }}
-                          </div>
-                        </div>
-                        <div class="comment-content">
-                          <div class="comment-header">
-                            <span class="comment-author">{{
-                              comment.author
-                            }}</span>
-                            <span class="comment-date">{{
-                              formatDate(comment.date)
-                            }}</span>
-                          </div>
-                          <p>{{ comment.content }}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div v-else class="empty-comments">
-                      <p>
-                        No comments yet. Be the first to share your thoughts!
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -241,28 +110,11 @@
               <div class="campaign-stats card">
                 <div class="funding-stats">
                   <div class="funding-amount">
-                    <span class="current-amount"
-                      >${{
-                        formatNumber(calculateRaisedAmount(campaign))
-                      }}</span
-                    >
-                    <span class="goal-amount"
-                      >raised of ${{
-                        formatNumber(campaign.funding_goals)
-                      }}
-                      goal</span
-                    >
-                  </div>
 
-                  <div class="progress-bar">
-                    <div
-                      class="progress-fill"
-                      :style="{ width: calculateProgress(campaign) + '%' }"
-                    ></div>
-                  </div>
-
-                  <div class="funding-progress">
-                    <span>{{ calculateProgress(campaign) }}% Complete</span>
+                    <span class="goal-amount">raised of ${{
+                      formatNumber(campaign.funding_goals)
+                    }}
+                      goal</span>
                   </div>
                 </div>
 
@@ -273,10 +125,7 @@
                     </div>
                     <div class="stat-label">Days Left</div>
                   </div>
-                  <div class="stat-item">
-                    <div class="stat-value">{{ supporters }}</div>
-                    <div class="stat-label">Supporters</div>
-                  </div>
+
                   <div class="stat-item">
                     <div class="stat-value">
                       {{ formatDate(campaign.created_at, true) }}
@@ -290,22 +139,13 @@
                     Donate Now
                   </button>
                   <div class="share-buttons">
-                    <button
-                      class="btn btn-outline btn-sm"
-                      @click="shareCampaign('facebook')"
-                    >
+                    <button class="btn btn-outline btn-sm" @click="shareCampaign('facebook')">
                       <i class="fab fa-facebook-f"></i> Share
                     </button>
-                    <button
-                      class="btn btn-outline btn-sm"
-                      @click="shareCampaign('twitter')"
-                    >
+                    <button class="btn btn-outline btn-sm" @click="shareCampaign('twitter')">
                       <i class="fab fa-twitter"></i> Tweet
                     </button>
-                    <button
-                      class="btn btn-outline btn-sm"
-                      @click="shareCampaign('email')"
-                    >
+                    <button class="btn btn-outline btn-sm" @click="shareCampaign('email')">
                       <i class="fas fa-envelope"></i> Email
                     </button>
                   </div>
@@ -330,7 +170,9 @@
                   </div>
                 </div>
                 <button class="btn btn-outline btn-block mt-3">
-                  Contact Organizer
+                  <a :href="'mailto:' + campaign.created_by.email">
+                    Contact Organizer
+                  </a>
                 </button>
               </div>
 
@@ -350,17 +192,9 @@
         <div class="container">
           <h2>Similar Campaigns</h2>
           <div class="campaign-grid">
-            <div
-              v-for="relatedCampaign in relatedCampaigns"
-              :key="relatedCampaign.id"
-              class="campaign-card"
-            >
+            <div v-for="relatedCampaign in relatedCampaigns" :key="relatedCampaign.id" class="campaign-card">
               <div class="campaign-image">
-                <img
-                  :src="relatedCampaign.cover_image"
-                  :alt="relatedCampaign.title"
-                  @error="handleImageError"
-                />
+                <img :src="relatedCampaign.cover_image" :alt="relatedCampaign.title" @error="handleImageError" />
               </div>
               <div class="campaign-content">
                 <div class="campaign-category">
@@ -373,31 +207,18 @@
 
                 <div class="campaign-progress">
                   <div class="progress-bar">
-                    <div
-                      class="progress-fill"
-                      :style="{
-                        width: calculateProgress(relatedCampaign) + '%',
-                      }"
-                    ></div>
                   </div>
                   <div class="progress-stats">
-                    <span class="funding-goal"
-                      >${{
-                        formatNumber(relatedCampaign.funding_goals)
-                      }}
-                      Goal</span
-                    >
-                    <span class="funding-progress"
-                      >{{ calculateProgress(relatedCampaign) }}%</span
-                    >
+                    <span class="funding-goal">${{
+                      formatNumber(relatedCampaign.funding_goals)
+                    }}
+                      Goal</span>
+
                   </div>
                 </div>
 
                 <div class="campaign-footer">
-                  <router-link
-                    :to="`/campaigns/${relatedCampaign.id}`"
-                    class="btn btn-sm btn-primary"
-                  >
+                  <router-link :to="`/campaigns/${relatedCampaign.id}`" class="btn btn-sm btn-primary">
                     View Details
                   </router-link>
                 </div>
@@ -409,8 +230,8 @@
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import apiClient from "@/axios";
@@ -457,7 +278,6 @@ export default {
     ]);
 
     const relatedCampaigns = ref([]);
-    const supporters = ref(Math.floor(Math.random() * 100) + 20); // Random number for demo
 
     // Fetch campaign details
     const fetchCampaignDetails = async () => {
@@ -574,22 +394,7 @@ export default {
       return diffDays > 0 ? diffDays : 0;
     };
 
-    // Calculate funding progress
-    const calculateProgress = (campaignData) => {
-      // In a real app, you would calculate this based on actual donations
-      // For now, we'll generate a random percentage between 10% and 90%
-      const randomProgress = Math.floor(Math.random() * 80) + 10;
-      return randomProgress;
-    };
 
-    // Calculate raised amount based on progress
-    const calculateRaisedAmount = (campaignData) => {
-      const progress = calculateProgress(campaignData);
-      return (
-        (parseFloat(campaignData.funding_goals) * progress) /
-        100
-      ).toFixed(2);
-    };
 
     // Format number with commas
     const formatNumber = (num) => {
@@ -675,13 +480,10 @@ export default {
       comments,
       newComment,
       relatedCampaigns,
-      supporters,
       fetchCampaignDetails,
       formatDate,
       formatDeadline,
       getDaysLeft,
-      calculateProgress,
-      calculateRaisedAmount,
       formatNumber,
       truncateText,
       handleImageError,
@@ -692,7 +494,7 @@ export default {
   },
 };
 </script>
-  
+
 <style scoped>
 /* Campaign Detail Page Styles */
 .campaign-detail-page {
@@ -1042,11 +844,11 @@ export default {
 }
 
 .stat-item {
-  padding: var(--spacing-sm);
+  padding: 10px;
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--primary);
 }
@@ -1154,6 +956,7 @@ export default {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

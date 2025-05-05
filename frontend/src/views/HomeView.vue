@@ -8,12 +8,8 @@
           Join our community of changemakers and support campaigns that matter.
         </p>
         <div class="hero-actions">
-          <router-link to="/campaigns/create" class="btn btn-primary"
-            >Start a Campaign</router-link
-          >
-          <router-link to="/campaigns" class="btn btn-outline"
-            >Explore All Campaigns</router-link
-          >
+          <router-link to="/campaigns/create" class="btn btn-primary">Start a Campaign</router-link>
+          <router-link to="/campaigns" class="btn btn-outline">Explore All Campaigns</router-link>
         </div>
       </div>
     </section>
@@ -23,9 +19,7 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Featured Campaigns</h2>
-          <router-link to="/campaigns" class="section-link"
-            >View All</router-link
-          >
+          <router-link to="/campaigns" class="section-link">View All</router-link>
         </div>
 
         <!-- Loading State -->
@@ -49,24 +43,14 @@
           <div class="empty-icon">📋</div>
           <h3>No Featured Campaigns Yet</h3>
           <p>Check back soon or explore all campaigns</p>
-          <router-link to="/campaigns" class="btn btn-primary"
-            >Browse All Campaigns</router-link
-          >
+          <router-link to="/campaigns" class="btn btn-primary">Browse All Campaigns</router-link>
         </div>
 
         <!-- Campaign Cards -->
         <div v-else class="campaign-grid">
-          <div
-            v-for="campaign in featuredCampaigns"
-            :key="campaign.id"
-            class="campaign-card"
-          >
+          <div v-for="campaign in featuredCampaigns" :key="campaign.id" class="campaign-card">
             <div class="campaign-image">
-              <img
-                :src="campaign.cover_image"
-                :alt="campaign.title"
-                @error="handleImageError"
-              />
+              <img :src="campaign.cover_image" :alt="campaign.title" @error="handleImageError" />
               <div v-if="campaign.is_featured" class="featured-badge">
                 Featured
               </div>
@@ -91,18 +75,11 @@
 
               <div class="campaign-progress">
                 <div class="progress-bar">
-                  <div
-                    class="progress-fill"
-                    :style="{ width: calculateProgress(campaign) + '%' }"
-                  ></div>
+                  <div class="progress-fill" :style="{ width: calculateProgress(campaign) + '%' }"></div>
                 </div>
                 <div class="progress-stats">
-                  <span class="funding-goal"
-                    >${{ formatNumber(campaign.funding_goals) }} Goal</span
-                  >
-                  <span class="funding-progress"
-                    >{{ calculateProgress(campaign) }}%</span
-                  >
+                  <span class="funding-goal">${{ formatNumber(campaign.funding_goals) }} Goal</span>
+                  <span class="funding-progress">{{ calculateProgress(campaign) }}%</span>
                 </div>
               </div>
 
@@ -110,10 +87,7 @@
                 <div class="campaign-creator">
                   <span>By {{ campaign.created_by.full_name }}</span>
                 </div>
-                <router-link
-                  :to="`/campaigns/${campaign.id}`"
-                  class="btn btn-sm btn-primary"
-                >
+                <router-link :to="`/campaigns/${campaign.id}`" class="btn btn-sm btn-primary">
                   View Details
                 </router-link>
               </div>
@@ -128,27 +102,14 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Recent Campaigns</h2>
-          <router-link to="/campaigns" class="section-link"
-            >View All</router-link
-          >
+          <router-link to="/campaigns" class="section-link">View All</router-link>
         </div>
 
         <!-- Campaign List -->
-        <div
-          v-if="!loading && !error && campaigns.length > 0"
-          class="campaign-list"
-        >
-          <div
-            v-for="campaign in recentCampaigns"
-            :key="campaign.id"
-            class="campaign-list-item"
-          >
+        <div v-if="!loading && !error && campaigns.length > 0" class="campaign-list">
+          <div v-for="campaign in recentCampaigns" :key="campaign.id" class="campaign-list-item">
             <div class="campaign-list-image">
-              <img
-                :src="campaign.cover_image"
-                :alt="campaign.title"
-                @error="handleImageError"
-              />
+              <img :src="campaign.cover_image" :alt="campaign.title" @error="handleImageError" />
             </div>
             <div class="campaign-list-content">
               <div class="campaign-list-header">
@@ -166,18 +127,11 @@
 
               <div class="campaign-list-progress">
                 <div class="progress-bar">
-                  <div
-                    class="progress-fill"
-                    :style="{ width: calculateProgress(campaign) + '%' }"
-                  ></div>
+                  <div class="progress-fill" :style="{ width: calculateProgress(campaign) + '%' }"></div>
                 </div>
                 <div class="progress-stats">
-                  <span class="funding-goal"
-                    >${{ formatNumber(campaign.funding_goals) }}</span
-                  >
-                  <span class="funding-progress"
-                    >{{ calculateProgress(campaign) }}%</span
-                  >
+                  <span class="funding-goal">${{ formatNumber(campaign.funding_goals) }}</span>
+                  <span class="funding-progress">{{ calculateProgress(campaign) }}%</span>
                 </div>
               </div>
 
@@ -185,10 +139,7 @@
                 <div class="campaign-creator">
                   <span>By {{ campaign.created_by.full_name }}</span>
                 </div>
-                <router-link
-                  :to="`/campaigns/${campaign.id}`"
-                  class="btn btn-sm btn-outline"
-                >
+                <router-link :to="`/campaigns/${campaign.id}`" class="btn btn-sm btn-outline">
                   Learn More
                 </router-link>
               </div>
@@ -197,10 +148,7 @@
         </div>
 
         <!-- Empty State for Recent Campaigns -->
-        <div
-          v-else-if="!loading && !error && campaigns.length === 0"
-          class="empty-container"
-        >
+        <div v-else-if="!loading && !error && campaigns.length === 0" class="empty-container">
           <p>No recent campaigns available.</p>
         </div>
       </div>
@@ -216,19 +164,15 @@
             change in your community.
           </p>
           <div class="cta-buttons">
-            <router-link to="/campaigns/create" class="btn btn-primary"
-              >Start a Campaign</router-link
-            >
-            <router-link to="/about" class="btn btn-outline"
-              >Learn More</router-link
-            >
+            <router-link to="/campaigns/create" class="btn btn-primary">Start a Campaign</router-link>
+            <router-link to="/about" class="btn btn-outline">Learn More</router-link>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
-  
+
 <script>
 import { ref, computed, onMounted } from "vue";
 import apiClient from "@/axios";
@@ -259,7 +203,7 @@ export default {
       error.value = null;
 
       try {
-        const response = await apiClient.get("/campaigns/campaigns");
+        const response = await apiClient.get("/campaigns/campaigns/");
         campaigns.value = response.data;
       } catch (err) {
         console.error("Error fetching campaigns:", err);
@@ -332,7 +276,7 @@ export default {
   },
 };
 </script>
-  
+
 <style scoped>
 /* Hero Section */
 .hero {
@@ -351,11 +295,9 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%);
   z-index: 1;
 }
 
@@ -680,6 +622,7 @@ export default {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
