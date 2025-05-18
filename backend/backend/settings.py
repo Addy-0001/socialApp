@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'jazzmin',
 
     # Django built-in apps
     'django.contrib.admin',
@@ -112,7 +113,7 @@ REST_FRAMEWORK = {
 
 # === Simple JWT ===
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -139,7 +140,8 @@ CORS_ALLOW_ALL_ORIGINS = DEBUG  # True only in dev
 # Or explicitly allow frontend URL in production
 # CORS_ALLOWED_ORIGINS = ['https://your-frontend.com']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://your-frontend.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
+                        'https://ecoimpact.getintoto.com', 'https://api-ecoimpact.getintoto.com']
 
 # === Templates ===
 ROOT_URLCONF = 'backend.urls'

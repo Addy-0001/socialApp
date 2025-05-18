@@ -33,7 +33,7 @@
               <div class="campaign-badges">
                 <span class="campaign-category">{{
                   campaign.category.name
-                  }}</span>
+                }}</span>
                 <span v-if="campaign.is_featured" class="featured-badge">Featured</span>
                 <span v-if="campaign.is_business" class="business-badge">Business</span>
               </div>
@@ -113,7 +113,7 @@
 
                     <span class="goal-amount">raised of ${{
                       formatNumber(campaign.funding_goals)
-                    }}
+                      }}
                       goal</span>
                   </div>
                 </div>
@@ -135,9 +135,11 @@
                 </div>
 
                 <div class="campaign-actions">
-                  <button class="btn btn-primary btn-lg btn-block">
-                    Donate Now
-                  </button>
+                  <RouterLink :to="'/campaigns/' + campaign.id + '/donate'" style="color: white;">
+                    <button class="btn btn-primary btn-lg btn-block">
+                      Donate Now
+                    </button>
+                  </RouterLink>
                   <div class="share-buttons">
                     <button class="btn btn-outline btn-sm" @click="shareCampaign('facebook')">
                       <i class="fab fa-facebook-f"></i> Share
@@ -187,53 +189,13 @@
         </div>
       </section>
 
-      <!-- Related Campaigns -->
-      <section class="related-campaigns">
-        <div class="container">
-          <h2>Similar Campaigns</h2>
-          <div class="campaign-grid">
-            <div v-for="relatedCampaign in relatedCampaigns" :key="relatedCampaign.id" class="campaign-card">
-              <div class="campaign-image">
-                <img :src="relatedCampaign.cover_image" :alt="relatedCampaign.title" @error="handleImageError" />
-              </div>
-              <div class="campaign-content">
-                <div class="campaign-category">
-                  {{ relatedCampaign.category.name }}
-                </div>
-                <h3 class="campaign-title">{{ relatedCampaign.title }}</h3>
-                <p class="campaign-description">
-                  {{ truncateText(relatedCampaign.description, 100) }}
-                </p>
-
-                <div class="campaign-progress">
-                  <div class="progress-bar">
-                  </div>
-                  <div class="progress-stats">
-                    <span class="funding-goal">${{
-                      formatNumber(relatedCampaign.funding_goals)
-                    }}
-                      Goal</span>
-
-                  </div>
-                </div>
-
-                <div class="campaign-footer">
-                  <router-link :to="`/campaigns/${relatedCampaign.id}`" class="btn btn-sm btn-primary">
-                    View Details
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </div>
 </template>
 
 <script>
 import { ref, computed, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { RouterLink, useRoute } from "vue-router";
 import apiClient from "@/axios";
 
 export default {

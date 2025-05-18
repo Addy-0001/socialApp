@@ -21,9 +21,7 @@
       <div class="navbar-menu" :class="{ 'active': isMenuOpen }">
         <div class="navbar-links">
           <router-link to="/campaigns" class="navbar-link">Campaigns</router-link>
-          <router-link to="/businesses" class="navbar-link">Businesses</router-link>
           <router-link to="/about" class="navbar-link">About Us</router-link>
-          <router-link to="/contact" class="navbar-link">Contact</router-link>
         </div>
 
         <!-- Right: Authentication Buttons or User Menu -->

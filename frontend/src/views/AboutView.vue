@@ -23,7 +23,7 @@
                         compassionate world—one campaign at a time.</p>
                 </div>
                 <div class="section-image">
-                    <img src="./placeholder.jpg" alt="Team working together" class="rounded-image" />
+                    <img src="@/placeholder.jpg" alt="Team working together" class="rounded-image" />
                 </div>
             </section>
 
@@ -96,7 +96,7 @@
                     <div class="campaign-cards">
                         <div class="featured-campaign-card">
                             <div class="campaign-image">
-                                <img src="./placeholder.jpg" alt="Clean Water Initiative" />
+                                <img src="@/placeholder.jpg" alt="Clean Water Initiative" />
                             </div>
                             <div class="campaign-content">
                                 <h4>Clean Water Initiative</h4>
@@ -106,7 +106,7 @@
 
                         <div class="featured-campaign-card">
                             <div class="campaign-image">
-                                <img src="./placeholder.jpg" alt="Education for All" />
+                                <img src="@/placeholder.jpg" alt="Education for All" />
                             </div>
                             <div class="campaign-content">
                                 <h4>Education for All</h4>
@@ -117,7 +117,7 @@
 
                         <div class="featured-campaign-card">
                             <div class="campaign-image">
-                                <img src="./placeholder.jpg" alt="Reforestation Project" />
+                                <img src="@/placeholder.jpg" alt="Reforestation Project" />
                             </div>
                             <div class="campaign-content">
                                 <h4>Reforestation Project</h4>
@@ -137,7 +137,7 @@
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="./placeholder.jpg" alt="Sarah Johnson" />
+                            <img src="@/placeholder.jpg" alt="Sarah Johnson" />
                         </div>
                         <h3>Sarah Johnson</h3>
                         <p class="member-title">Executive Director</p>
@@ -147,7 +147,7 @@
 
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="./placeholder.jpg" alt="Michael Chen" />
+                            <img src="@/placeholder.jpg" alt="Michael Chen" />
                         </div>
                         <h3>Michael Chen</h3>
                         <p class="member-title">Chief Technology Officer</p>
@@ -157,7 +157,7 @@
 
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="./placeholder.jpg" alt="Aisha Patel" />
+                            <img src="@/placeholder.jpg" alt="Aisha Patel" />
                         </div>
                         <h3>Aisha Patel</h3>
                         <p class="member-title">Community Engagement Director</p>
@@ -167,7 +167,7 @@
 
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="./placeholder.jpg" alt="David Okafor" />
+                            <img src="@/placeholder.jpg" alt="David Okafor" />
                         </div>
                         <h3>David Okafor</h3>
                         <p class="member-title">Impact Assessment Lead</p>
@@ -184,22 +184,22 @@
 
                 <div class="partners-grid">
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 1" />
+                        <img src="@/placeholder.jpg" alt="Partner 1" />
                     </div>
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 2" />
+                        <img src="@/placeholder.jpg" alt="Partner 2" />
                     </div>
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 3" />
+                        <img src="@/placeholder.jpg" alt="Partner 3" />
                     </div>
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 4" />
+                        <img src="@/placeholder.jpg" alt="Partner 4" />
                     </div>
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 5" />
+                        <img src="@/placeholder.jpg" alt="Partner 5" />
                     </div>
                     <div class="partner-logo">
-                        <img src="./placeholder.jpg" alt="Partner 6" />
+                        <img src="@/placeholder.jpg" alt="Partner 6" />
                     </div>
                 </div>
             </section>

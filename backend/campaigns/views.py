@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .models import Campaign, CampaignCategory
-from .serializers import CampaignSerializer, CampaignCategorySerializer
+from .models import Campaign, CampaignCategory, CampaignDonation
+from .serializers import CampaignSerializer, CampaignCategorySerializer, CampaignDonationSerializer
 
 
 class CampaignCategoryViewSet(viewsets.ModelViewSet):
@@ -10,7 +10,7 @@ class CampaignCategoryViewSet(viewsets.ModelViewSet):
 
 
 class CampaignViewSet(viewsets.ModelViewSet):
-    queryset = Campaign.objects.all()
+    queryset = Campaign.objects.filter(approved=True)
     serializer_class = CampaignSerializer
 
     def get_permissions(self):
@@ -35,3 +35,12 @@ class CampaignViewSet(viewsets.ModelViewSet):
         if not self.request.user.is_staff:
             return Campaign.objects.filter(approved=True)
         return Campaign.objects.all()
+
+
+class DonationViewSet(viewsets.ModelViewSet):
+    queryset = CampaignDonation.objects.all()
+    serializer_class = CampaignDonationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

@@ -44,3 +44,18 @@ class Campaign(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
+
+class CampaignDonation(models.Model):
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    reciept = models.ImageField(upload_to='donations/', blank=True, null=True)
+
+    donation_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-donation_date']
+
+    def __str__(self):
+        return f"{self.user.username} - {self.campaign.title} - {self.amount}"

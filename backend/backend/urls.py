@@ -16,3 +16,8 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL,
                       document_root=settings.MEDIA_ROOT)
+
+# Custom Administration Name
+admin.site.site_header = "EcoImpact Admin"
+admin.site.site_title = "EcoImpact Admin Portal"
+admin.site.index_title = "Welcome to EcoImpact Admin Portal"

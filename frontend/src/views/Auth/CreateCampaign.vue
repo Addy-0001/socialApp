@@ -38,13 +38,13 @@
                         <i class="fas fa-check"></i>
                     </div>
                     <h3>Campaign Created Successfully!</h3>
-                    <p>Your campaign has been created and is now ready for review.</p>
+                    <p>Your campaign has been sent to admin for approval and will be visible when approved.</p>
                     <div class="success-actions">
                         <router-link :to="`/campaigns/${createdCampaignId}`" class="btn btn-primary">
                             <i class="fas fa-eye"></i>
                             View Campaign
                         </router-link>
-                        <router-link to="/campaigns/my-campaigns" class="btn btn-outline">
+                        <router-link to="/my-campaigns" class="btn btn-outline">
                             <i class="fas fa-list"></i>
                             My Campaigns
                         </router-link>
@@ -163,19 +163,6 @@
 
                                     <p v-if="errors.cover_image" class="error-message">{{ errors.cover_image }}</p>
                                     <p class="image-help-text">Recommended size: 1200 x 630 pixels. Max size: 5MB.</p>
-                                </div>
-                            </div>
-
-                            <!-- Campaign Settings -->
-                            <div class="form-section">
-                                <h2 class="section-title">Campaign Settings</h2>
-
-                                <div class="form-group checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" v-model="form.is_active" />
-                                        <span class="checkbox-text">Publish immediately</span>
-                                    </label>
-                                    <p class="help-text">If unchecked, your campaign will be saved as a draft.</p>
                                 </div>
                             </div>
 

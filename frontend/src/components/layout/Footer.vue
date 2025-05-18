@@ -30,9 +30,7 @@
           <h3 class="footer-heading">Quick Links</h3>
           <ul class="footer-nav">
             <li><router-link to="/campaigns">Campaigns</router-link></li>
-            <li><router-link to="/businesses">Businesses</router-link></li>
             <li><router-link to="/about">About Us</router-link></li>
-            <li><router-link to="/contact">Contact</router-link></li>
           </ul>
         </div>
       </div>
@@ -67,8 +65,8 @@
     </div>
   </footer>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "Footer",
   data() {
@@ -87,8 +85,8 @@ export default {
   },
 };
 </script>
-  
-  <script setup>
+
+<script setup>
 // If you prefer Composition API:
 // import { ref, computed } from 'vue'
 //
@@ -100,8 +98,8 @@ export default {
 //   email.value = ''
 // }
 </script>
-  
-  <style>
+
+<style>
 .footer {
   background-color: var(--surface);
   color: var(--text-primary);

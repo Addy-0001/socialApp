@@ -34,9 +34,6 @@
                     <div class="form-group">
                         <div class="password-header">
                             <label for="password" class="form-label">Password</label>
-                            <router-link to="/forgot-password" class="forgot-password">
-                                Forgot Password?
-                            </router-link>
                         </div>
                         <div class="password-input-wrapper">
                             <input id="password" v-model="form.password" :type="showPassword ? 'text' : 'password'"
@@ -49,16 +46,6 @@
                         </div>
                         <div v-if="errors.password" class="invalid-feedback">
                             {{ errors.password }}
-                        </div>
-                    </div>
-
-                    <!-- Remember Me -->
-                    <div class="form-group">
-                        <div class="checkbox-wrapper">
-                            <input id="remember-me" v-model="form.rememberMe" type="checkbox" class="form-checkbox" />
-                            <label for="remember-me" class="checkbox-label">
-                                Remember me
-                            </label>
                         </div>
                     </div>
 
@@ -75,23 +62,6 @@
                         {{ apiError }}
                     </div>
                 </form>
-
-                <!-- Social Login -->
-                <div class="social-login">
-                    <div class="divider">
-                        <span>Or continue with</span>
-                    </div>
-                    <div class="social-buttons">
-                        <button class="btn btn-outline social-btn">
-                            <i class="fab fa-google"></i>
-                            Google
-                        </button>
-                        <button class="btn btn-outline social-btn">
-                            <i class="fab fa-facebook-f"></i>
-                            Facebook
-                        </button>
-                    </div>
-                </div>
 
                 <!-- Don't have an account -->
                 <div class="auth-footer">
